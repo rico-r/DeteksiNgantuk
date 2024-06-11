@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Deteksi Ngantuk</string>
+    <string name="sample_item"><b>Status</b>: Mata Ngantuk\n<b>Timestamp</b>: 2024-01-01 13:29:59\n<b>Value</b>: 17.38792</string>
 </resources>
