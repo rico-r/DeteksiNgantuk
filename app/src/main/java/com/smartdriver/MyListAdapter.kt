@@ -1,11 +1,11 @@
-package com.example.az_travel
+package com.smartdriver
 
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.az_travel.databinding.ListItemBinding
+import com.smartdriver.databinding.ListItemBinding
 
 class MyListAdapter() : ListAdapter<DataItem, MyListAdapter.ViewHolder>(DataItemCallback()) {
 

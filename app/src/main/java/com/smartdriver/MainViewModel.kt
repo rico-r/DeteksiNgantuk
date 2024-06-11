@@ -1,4 +1,4 @@
-package com.example.az_travel
+package com.smartdriver
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,9 +9,14 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
+val TEXT_AMAN = "Aman, tidak mengantuk"
+
 class MainViewModel: ViewModel(), ValueEventListener {
+
     val data = MutableLiveData<List<DataItem>>()
     val first = data.map { it[0] }
+    val firstN = data.map { it.subList(0, 6) }
+    val status = MutableLiveData("")
 
     init {
         FirebaseDatabase.getInstance()

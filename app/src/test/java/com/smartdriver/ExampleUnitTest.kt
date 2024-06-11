@@ -1,4 +1,4 @@
-package com.example.az_travel
+package com.smartdriver
 
 import org.junit.Test
 

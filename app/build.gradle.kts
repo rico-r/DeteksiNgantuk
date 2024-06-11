@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.az_travel"
+    namespace = "com.smartdriver"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.az_travel"
-        minSdk = 24
+        applicationId = "com.smartdriver"
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

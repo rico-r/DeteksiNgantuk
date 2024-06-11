@@ -1,4 +1,4 @@
-package com.example.az_travel
+package com.smartdriver
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.az_travel.databinding.FragmentHistoryBinding
+import com.smartdriver.databinding.FragmentHistoryBinding
 
 class HistoryFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
@@ -28,7 +28,7 @@ class HistoryFragment : Fragment() {
         )
         binding.lifecycleOwner = this
         binding.recyclerView.adapter = adapter
-        viewModel.data.observe(viewLifecycleOwner) {
+        viewModel.firstN.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
         return binding.root
