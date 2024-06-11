@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
         binding.viewModel = viewModel
         viewModel.status.value = TEXT_AMAN
         viewModel.first.observe(viewLifecycleOwner) {
+            if(it == null) return@observe
 
             currentTimer?.cancel()
             val givenDate = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(it.timestamp)!!

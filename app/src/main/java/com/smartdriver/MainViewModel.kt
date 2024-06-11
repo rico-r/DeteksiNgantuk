@@ -14,8 +14,8 @@ val TEXT_AMAN = "Aman, tidak mengantuk"
 class MainViewModel: ViewModel(), ValueEventListener {
 
     val data = MutableLiveData<List<DataItem>>()
-    val first = data.map { it[0] }
-    val firstN = data.map { it.subList(0, 6) }
+    val first = data.map { if(it.isEmpty()) null else it[0] }
+    val firstN = data.map { if(it.isEmpty()) null else it.subList(0, Math.min(6, it.size)) }
     val status = MutableLiveData("")
 
     init {
