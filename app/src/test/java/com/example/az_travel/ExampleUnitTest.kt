@@ -1,4 +1,4 @@
-package com.deteksingantuk
+package com.example.az_travel
 
 import org.junit.Test
 

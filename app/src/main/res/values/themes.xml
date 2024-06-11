@@ -1,8 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DeteksiNgantuk" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.DeteksiNgantuk" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+    </style>
+
+    <style name="Widget.App.MainTabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabIconTintMode">@null</item>
+        <item name="tabIconTint">@null</item>
+        <item name="tabTextColor">#888888</item>
+        <item name="tabSelectedTextColor">@color/black</item>
     </style>
 
     <style name="Theme.DeteksiNgantuk" parent="Base.Theme.DeteksiNgantuk" />
