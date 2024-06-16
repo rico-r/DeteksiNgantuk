@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: MainViewModel
     private var currentTimer: Timer? = null
+    private var currentTimer2: Timer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class HomeFragment : Fragment() {
             currentTimer?.cancel()
             val givenDate = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(it.timestamp)!!
             val currentDate = Date()
-            val delayTime = givenDate.time - currentDate.time + 5000
+            val delayTime = givenDate.time - currentDate.time + 5 * 1000
             if (delayTime > 0) {
                 viewModel.status.value = it.status
                 currentTimer = Timer()
@@ -58,6 +59,26 @@ class HomeFragment : Fragment() {
                 }, delayTime)
             } else {
                 viewModel.status.value = TEXT_AMAN
+            }
+        }
+
+        viewModel.lastConnectTime.observe(viewLifecycleOwner) {value ->
+            val upDate = SimpleDateFormat(DATE_FORMAT, Locale.getDefault()).parse(value)!!
+            val diff = Date().time - upDate.time + 15 * 1000
+            if (diff > 0) {
+                binding.connectStatus.text = "Status: Terhubung\n" + value
+                currentTimer2?.cancel()
+                currentTimer2 = Timer()
+                currentTimer2!!.schedule(object: TimerTask() {
+                    override fun run() {
+                        GlobalScope.launch(Dispatchers.Main) {
+                            binding.connectStatus.text = "Status: Tidak Terhubung\n" + value
+                        }
+                        currentTimer2 = null
+                    }
+                }, diff)
+            } else {
+                binding.connectStatus.text = "Status: Tidak Terhubung\n" + value
             }
         }
 

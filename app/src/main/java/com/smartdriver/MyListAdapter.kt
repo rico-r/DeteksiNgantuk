@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.smartdriver.databinding.ListItemBinding
 
 class MyListAdapter() : ListAdapter<DataItem, MyListAdapter.ViewHolder>(DataItemCallback()) {
@@ -29,6 +30,9 @@ class MyListAdapter() : ListAdapter<DataItem, MyListAdapter.ViewHolder>(DataItem
                 data.timestamp,
                 data.value
             ))
+            Glide.with(binding.root.context)
+                .load(data.img)
+                .into(binding.gambar)
         }
     }
 

@@ -6,6 +6,7 @@ data class DataItem(
     var status: String = "",
     var timestamp: String = "",
     var value: Double = 0.0,
+    val img: String = "",
 )
 
 class DataItemCallback : DiffUtil.ItemCallback<DataItem>() {
